@@ -22,6 +22,7 @@ model User {
   updatedAt      DateTime?
   lastLogin      DateTime?
   invitationText InvitationText[]
+  userGuests     GuestList[]
 
   @@map("Users")
 }
@@ -41,6 +42,8 @@ model GuestList {
   phone          String?
   invitationText String   @db.Text
   createdAt      DateTime @default(now())
+  userId         Int
+  guestUserId    User     @relation(fields: [userId], references: [id])
 
   @@map("GuestList")
 }

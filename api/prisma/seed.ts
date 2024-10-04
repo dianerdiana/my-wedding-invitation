@@ -1,19 +1,22 @@
+import { hashPassword } from "./../src/libs/password";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 async function main() {
+  const hashedPassword = await hashPassword("123456");
+
   await prisma.user.createMany({
     data: [
       {
         fullName: "Dian Erdiana",
         username: "dianerdiana",
-        password: "123456",
+        password: hashedPassword,
       },
       {
         fullName: "Dede Delisa",
         username: "dd_delisa",
-        password: "123456",
+        password: hashedPassword,
       },
     ],
   });

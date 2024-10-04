@@ -1,20 +1,13 @@
+import { AuthenticatedRequest, UserPayload } from "@libs/AuthenticatedRequest";
 import { UnauthorizedError } from "@libs/errors/UnauthorizedError";
 import { verifyToken } from "@libs/jwt";
-import { NextFunction, Request, Response } from "express";
-import { JwtPayload } from "jsonwebtoken";
+import { NextFunction, Response } from "express";
 
-// Define the structure of your JWT payload, extending JwtPayload
-interface UserPayload extends JwtPayload {
-  userId: string;
-  username: string;
-}
-
-// Extend the Express Request interface to include the user property
-interface AuthenticatedRequest extends Request {
-  user?: UserPayload;
-}
-
-const AuthMiddleware = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+export const AuthMiddleware = async (
+  req: AuthenticatedRequest,
+  res: Response,
+  next: NextFunction
+) => {
   // Mendapatkan token dari header atau query parameter atau body
   const token = req.header("Authorization")?.split(" ")[1];
 
@@ -27,14 +20,16 @@ const AuthMiddleware = async (req: AuthenticatedRequest, res: Response, next: Ne
     // Verifikasi token
     const decoded = verifyToken(token);
 
-    // Menyimpan payload token untuk digunakan di middleware lainnya atau rute
-    req.user = decoded as UserPayload;
+    if (decoded) {
+      // Menyimpan payload token untuk digunakan di middleware lainnya atau rute
+      req.user = decoded as UserPayload;
 
-    // Melanjutkan ke middleware atau rute berikutnya
-    next();
+      // Melanjutkan ke middleware atau rute berikutnya
+      next();
+    } else {
+      throw new UnauthorizedError("Token denied!");
+    }
   } catch (error) {
     next(error);
   }
 };
-
-module.exports = AuthMiddleware;
