@@ -1,0 +1,42 @@
+
+@font-face {
+  font-family: 'Trebuchet MS';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/trebuchet/trebuc.ttf') format('TrueType');
+}
+
+@font-face {
+  font-family: 'Analogue';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/analogue/Analogue.otf') format('OpenType');
+}
+
+@font-face {
+  font-family: 'Allema';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/allema/allema.otf') format('OpenType');
+}
+
+@font-face {
+  font-family: 'Gendis';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/gendis/gendis.ttf') format('TrueType');
+}
+
+@font-face {
+  font-family: 'Lucian';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/lucian/lucian.ttf') format('TrueType');
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/cinzel/CinzelDecorative-Regular.ttf') format('TrueType');
+}

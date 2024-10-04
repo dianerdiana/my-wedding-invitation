@@ -1,0 +1,13 @@
+@import url("./assets/styles/fonts.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.allema_text_shadow {
+  text-shadow: 11px 17px 0px rgba(59.499999999999986, 59.499999999999986, 59.499999999999986, 0.17)
+}
+
+.card_shadow {
+  box-shadow: 3px 2px 10px 0px rgba(227.79999999999998, 227.79999999999998, 227.79999999999998, 0.5);
+}
