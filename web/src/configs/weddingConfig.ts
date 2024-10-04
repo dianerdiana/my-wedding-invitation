@@ -1,15 +1,15 @@
 type WeddingConfig = {
-  groomFullName: string; // Mempelai Pria
   brideFullName: string; // Mempelai wanita
-  groomShortName: string;
   brideShortName: string;
-  groomInitialName: string;
   brideInitialName: string;
-  groomMotherName: string;
   brideMotherName: string;
-  groomFatherName: string;
   brideFatherName: string;
-  weddingDate: Date;
+  groomFullName: string; // Mempelai Pria
+  groomShortName: string;
+  groomInitialName: string;
+  groomMotherName: string;
+  groomFatherName: string;
+  weddingDate: Date | string;
   akadTime: string;
   resepsiTime: string;
   weddingAddress: string;

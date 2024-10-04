@@ -17,6 +17,7 @@
     "paths": {
       "@src/*": ["/*"],
       "@libs/*": ["libs/*"],
+      "@config/*": ["config/*"],
       "@middlewares/*": ["http/middlewares/*"],
       "@controllers/*": ["http/controllers/*"]
     }

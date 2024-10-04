@@ -1,0 +1,7 @@
+{
+    "prisma.fileWatcher": true,
+    "editor.defaultFormatter": null,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}
