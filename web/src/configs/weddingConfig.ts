@@ -32,5 +32,5 @@ export const weddingConfig: WeddingConfig = {
   resepsiTime: "09:00 WIB ~ Selesai",
   // prettier-ignore
   weddingAddress: "Dusun 5 Rt.01 Rw.10 Desa Sukaraja Wetan Kec.Jatiwangi Kab.Majalengka",
-  weddingMapLink: "https://maps.app.goo.gl/a2bQhneyEDtxGAqR7",
+  weddingMapLink: "https://maps.app.goo.gl/KnKvixWwNJdMa8kF7",
 };
