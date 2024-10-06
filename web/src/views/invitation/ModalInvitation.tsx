@@ -2,7 +2,17 @@ import { useEffect, useState } from "react";
 import { FiMail } from "react-icons/fi";
 import { useAudio } from "@utils/hooks/useAudio";
 
-const ModalInvitation = () => {
+type ModalInvitationProps = {
+  to: string;
+  groomShortName: string;
+  brideShortName: string;
+};
+
+const ModalInvitation = ({
+  to,
+  groomShortName,
+  brideShortName,
+}: ModalInvitationProps) => {
   const { play } = useAudio();
   const [isVisible, setIsVisible] = useState(true);
 
@@ -34,13 +44,13 @@ const ModalInvitation = () => {
           Our Wedding Invitation
         </h1>
         <h2 className="text-6xl sm:text-7xl font-lucian text-gold md:text-8xl">
-          Delisa & Dian
+          {brideShortName} & {groomShortName}
         </h2>
         <div className="flex flex-col items-center gap-3">
           <p className="text-[10px] text-white text-center md:text-sm font-semibold font-trebuc tracking-3_8">
             Kepada Yth Bpk/Ibu/Sdr/i
           </p>
-          <span className="text-gold">Sayang</span>
+          <span className="font-semibold text-gold">{to}</span>
         </div>
         <button
           onClick={handleClose}

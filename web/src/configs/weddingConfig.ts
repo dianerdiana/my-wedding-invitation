@@ -27,7 +27,7 @@ export const weddingConfig: WeddingConfig = {
   groomMotherName: "Maemunah",
   brideFatherName: "Diding Suhadi (Alm.)",
   brideMotherName: "Illah Susilah",
-  weddingDate: new Date("2024-10-19 08:00:00"),
+  weddingDate: new Date("2024-10-09 08:00:00"),
   akadTime: "08:00 WIB",
   resepsiTime: "09:00 WIB ~ Selesai",
   // prettier-ignore

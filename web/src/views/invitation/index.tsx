@@ -2,9 +2,13 @@ import ModalInvitation from "./ModalInvitation";
 import WeddingInvitationContent from "@src/components/wedding-invitation-content";
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
 import { useAudio } from "@utils/hooks/useAudio";
+import { useSearchParams } from "react-router-dom";
+import { weddingConfig } from "@src/configs/weddingConfig";
 
 const Invitation = () => {
   const { play, pause, isPlaying } = useAudio();
+  const [searchParams] = useSearchParams();
+  const to = searchParams.get("to");
 
   return (
     <>
@@ -18,7 +22,11 @@ const Invitation = () => {
           {isPlaying ? <HiSpeakerWave /> : <HiSpeakerXMark />}
         </button>
       </div>
-      <ModalInvitation />
+      <ModalInvitation
+        to={to || "Tamu Undangan"}
+        groomShortName={weddingConfig.groomShortName}
+        brideShortName={weddingConfig.brideShortName}
+      />
       <WeddingInvitationContent />
     </>
   );
