@@ -1,5 +1,5 @@
 // React Imports
-import { useRef, useState } from 'react';
+import { memo, useRef, useState } from 'react';
 
 // Router Dom
 import { Link, Navigate, Outlet, useLocation } from 'react-router-dom';
@@ -11,7 +11,7 @@ import { cn } from '@configs/cn';
 import { navigation, type SidenavItem } from '@src/navigation';
 import { FiAlignJustify, FiArrowUp, FiX } from 'react-icons/fi';
 
-const AdminLayout = () => {
+const AdminLayout = memo(() => {
   // Ambil status autentikasi dari Redux store atau localStorage
   const isAuthenticated = localStorage.getItem('authToken') !== null;
 
@@ -91,7 +91,7 @@ const AdminLayout = () => {
       </div>
     </>
   );
-};
+});
 
 export default AdminLayout;
 

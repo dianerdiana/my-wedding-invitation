@@ -1,22 +1,26 @@
-import SlideInFromRight from "@components/motion/SlideInFromRight";
-import SlideInFromSmall from "../motion/SlideInFromSmall";
+import SlideInFromRight from '@components/motion/SlideInFromRight';
+import SlideInFromSmall from '../motion/SlideInFromSmall';
 
 type CardDetailBrideBroomProps = {
   brideFullName: string;
   brideFatherName: string;
   brideMotherName: string;
   groomFullName: string;
+  brideAddress: string;
   groomFatherName: string;
   groomMotherName: string;
+  groomAddress: string;
 };
 
 const CardDetailBrideBroom = ({
   brideFullName,
   brideFatherName,
   brideMotherName,
+  brideAddress,
   groomFullName,
   groomFatherName,
   groomMotherName,
+  groomAddress,
 }: CardDetailBrideBroomProps) => {
   return (
     <div>
@@ -35,15 +39,13 @@ const CardDetailBrideBroom = ({
         <div className="w-full border-gold border-2 rounded-[63px] h-full">
           <div className="flex flex-col justify-center h-full px-8 py-5 gap-y-5 min-h-[430px]">
             <SlideInFromSmall>
-              <h1 className="text-4xl text-center font-analogue text-gold">
-                {brideFullName}
-              </h1>
+              <h1 className="text-4xl text-center font-analogue text-gold">{brideFullName}</h1>
             </SlideInFromSmall>
             <div className="text-xs leading-6 text-center">
               <div>
                 <SlideInFromSmall>Putri Dari:</SlideInFromSmall>
                 <SlideInFromSmall>
-                  Bapak {brideFatherName} & Ibu {brideMotherName}
+                  Bapak {brideFatherName} & Ibu {brideMotherName} <br />({brideAddress})
                 </SlideInFromSmall>
               </div>
             </div>
@@ -51,15 +53,13 @@ const CardDetailBrideBroom = ({
               <SlideInFromSmall>&</SlideInFromSmall>
             </span>
             <SlideInFromSmall>
-              <h1 className="text-4xl text-center font-analogue text-gold">
-                {groomFullName}
-              </h1>
+              <h1 className="text-4xl text-center font-analogue text-gold">{groomFullName}</h1>
             </SlideInFromSmall>
             <div className="text-xs leading-6 text-center">
               <div>
                 <SlideInFromSmall>Putra Dari:</SlideInFromSmall>
                 <SlideInFromSmall>
-                  Bapak {groomFatherName} & Ibu {groomMotherName}
+                  Bapak {groomFatherName} & Ibu {groomMotherName} <br />({groomAddress})
                 </SlideInFromSmall>
               </div>
             </div>

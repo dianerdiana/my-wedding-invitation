@@ -1,20 +1,20 @@
-import { weddingConfig } from "@src/configs/weddingConfig";
-import { giftAccounts } from "@src/configs/giftAccounts";
+import { weddingConfig } from '@src/configs/weddingConfig';
+import { giftAccounts } from '@src/configs/giftAccounts';
 
-import CardGreetings from "./CardGreetings";
-import CardCountDate from "./CardCountDate";
-import CardWeddingInvitation from "./CardWeddingInvitation";
-import CardShortName from "./CardShortName";
-import CardDetailBrideBroom from "./CardDetailBrideBroom";
+import CardGreetings from './CardGreetings';
+import CardCountDate from './CardCountDate';
+import CardWeddingInvitation from './CardWeddingInvitation';
+import CardShortName from './CardShortName';
+import CardDetailBrideBroom from './CardDetailBrideBroom';
 
-import SectionArRum from "./SectionArRum";
-import CardWeddingEvent from "./CardWeddingEvent";
-import CardResepsi from "./CardResepsi";
-import CardUcapanDanDoa from "./CardUcapanDanDoa";
-import CardWeddingGift from "./CardWeddingGift";
-import SectionThank from "./SectionThank";
+import SectionArRum from './SectionArRum';
+import CardWeddingEvent from './CardWeddingEvent';
+import CardResepsi from './CardResepsi';
+import CardUcapanDanDoa from './CardUcapanDanDoa';
+import CardWeddingGift from './CardWeddingGift';
+import SectionThank from './SectionThank';
 
-import { getDayName, getFormatWeddingDate } from "@utils/Utils";
+import { getDayName, getFormatWeddingDate } from '@utils/Utils';
 
 const WeddingInvitationContent = () => {
   const {
@@ -33,6 +33,8 @@ const WeddingInvitationContent = () => {
     weddingAddress,
     weddingDate: rawWeddingDate,
     weddingMapLink,
+    brideAddress,
+    groomAddress,
   } = weddingConfig;
 
   const weddingDay = getDayName(rawWeddingDate);
@@ -66,9 +68,11 @@ const WeddingInvitationContent = () => {
         brideFullName={brideFullName}
         brideFatherName={brideFatherName}
         brideMotherName={brideMotherName}
+        brideAddress={brideAddress}
         groomFullName={groomFullName}
         groomFatherName={groomFatherName}
         groomMotherName={groomMotherName}
+        groomAddress={groomAddress}
       />
 
       <SectionArRum />
@@ -93,10 +97,7 @@ const WeddingInvitationContent = () => {
 
       <CardWeddingGift giftAccounts={giftAccounts} />
 
-      <SectionThank
-        brideShortName={brideShortName}
-        groomShortName={groomShortName}
-      />
+      <SectionThank brideShortName={brideShortName} groomShortName={groomShortName} />
     </>
   );
 };

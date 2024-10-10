@@ -4,11 +4,13 @@ type WeddingConfig = {
   brideInitialName: string;
   brideMotherName: string;
   brideFatherName: string;
+  brideAddress: string;
   groomFullName: string; // Mempelai Pria
   groomShortName: string;
   groomInitialName: string;
   groomMotherName: string;
   groomFatherName: string;
+  groomAddress: string;
   weddingDate: Date | string;
   akadTime: string;
   resepsiTime: string;
@@ -17,20 +19,22 @@ type WeddingConfig = {
 };
 
 export const weddingConfig: WeddingConfig = {
-  groomFullName: "Dian Erdiana",
-  groomShortName: "Dian",
-  brideFullName: "Delisa Dede",
-  brideShortName: "Dede",
-  groomInitialName: "D",
-  brideInitialName: "D",
-  groomFatherName: "Sutarwan",
-  groomMotherName: "Maemunah",
-  brideFatherName: "Diding Suhadi (Alm.)",
-  brideMotherName: "Illah Susilah",
-  weddingDate: new Date("2024-10-19 08:00:00"),
-  akadTime: "08:00 WIB",
-  resepsiTime: "09:00 WIB ~ Selesai",
+  groomFullName: 'Dian Erdiana',
+  groomShortName: 'Dian',
+  brideFullName: 'Delisa Dede',
+  brideShortName: 'Dede',
+  groomInitialName: 'D',
+  brideInitialName: 'D',
+  groomFatherName: 'Sutarwan',
+  groomMotherName: 'Maemunah',
+  brideFatherName: 'Diding Suhadi (Alm.)',
+  brideMotherName: 'Illah Susilah',
+  weddingDate: new Date('2024-10-19 08:00:00'),
+  akadTime: '08:00 WIB',
+  resepsiTime: '09:00 WIB ~ Selesai',
   // prettier-ignore
   weddingAddress: "Dusun 5 Rt.01 Rw.10 Desa Sukaraja Wetan Kec.Jatiwangi Kab.Majalengka",
-  weddingMapLink: "https://maps.app.goo.gl/KnKvixWwNJdMa8kF7",
+  weddingMapLink: 'https://maps.app.goo.gl/KnKvixWwNJdMa8kF7',
+  brideAddress: 'Sukaraja Wetan',
+  groomAddress: 'Cibentar',
 };

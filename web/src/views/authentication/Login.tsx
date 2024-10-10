@@ -73,8 +73,8 @@ const Login = () => {
           />
         </div>
 
-        <button className="px-8 py-2 text-sm text-white rounded-md bg-gold">
-          Kirim
+        <button className="w-full px-8 py-3 text-sm text-white rounded-md bg-gold">
+          Masuk
         </button>
       </form>
     </section>
