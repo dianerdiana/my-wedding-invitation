@@ -1,13 +1,23 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
-import { AudioProvider } from "./utils/context/AudioProvider.tsx";
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.tsx';
+import './index.css';
+import { AudioProvider } from './utils/context/AudioProvider.tsx';
 
-createRoot(document.getElementById("root")!).render(
+// ** Redux Imports
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
+
+// ** Toaster
+import { Toaster } from 'react-hot-toast';
+
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AudioProvider>
-      <App />
-    </AudioProvider>
+    <Provider store={store}>
+      <AudioProvider>
+        <App />
+        <Toaster position="top-right" />
+      </AudioProvider>
+    </Provider>
   </StrictMode>
 );

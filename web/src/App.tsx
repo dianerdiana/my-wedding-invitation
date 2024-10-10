@@ -1,41 +1,55 @@
-import { lazy, Suspense } from "react";
-import MainLayout from "./layouts/MainLayout";
+import { lazy, Suspense } from 'react';
+import MainLayout from './layouts/MainLayout';
 
-const Invitation = lazy(() => import("./views/invitation"));
-const WeddingConfig = lazy(() => import("./views/wedding-config"));
-const GuestList = lazy(() => import("./views/admin/guest/list"));
-const CreateGuest = lazy(() => import("./views/admin/guest/create"));
+// Auth
+const Login = lazy(() => import('./views/authentication/Login'));
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AdminLayout from "./layouts/AdminLayout";
+const Invitation = lazy(() => import('./views/invitation'));
+const WeddingConfig = lazy(() => import('./views/wedding-config'));
+const GuestList = lazy(() => import('./views/admin/guest/list'));
+const CreateGuest = lazy(() => import('./views/admin/guest/create'));
+
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from 'react-router-dom';
+
+import AdminLayout from './layouts/AdminLayout';
 
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/",
       element: <MainLayout />,
       children: [
         {
           index: true,
-          path: "/",
+          path: '/',
           element: <Invitation />,
+        },
+        {
+          path: '/login',
+          element: <Login />,
         },
       ],
     },
     {
-      path: "/admin",
       element: <AdminLayout />,
       children: [
         {
-          path: "config",
+          path: 'admin',
+          element: <Navigate to="guests" />,
+        },
+        {
+          path: 'admin/config',
           element: <WeddingConfig />,
         },
         {
-          path: "guests",
+          path: 'admin/guests',
           element: <GuestList />,
         },
         {
-          path: "guests/create",
+          path: 'admin/guests/create',
           element: <CreateGuest />,
         },
       ],

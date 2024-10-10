@@ -1,27 +1,35 @@
 // React Imports
-import { useRef, useState } from "react";
+import { useRef, useState } from 'react';
 
 // Router Dom
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Navigate, Outlet, useLocation } from 'react-router-dom';
 
 // Thirdparty
-import { cn } from "@configs/cn";
+import { cn } from '@configs/cn';
 
 // Type
-import { navigation, type SidenavItem } from "@src/navigation";
-import { FiAlignJustify, FiArrowUp, FiX } from "react-icons/fi";
+import { navigation, type SidenavItem } from '@src/navigation';
+import { FiAlignJustify, FiArrowUp, FiX } from 'react-icons/fi';
 
 const AdminLayout = () => {
+  // Ambil status autentikasi dari Redux store atau localStorage
+  const isAuthenticated = localStorage.getItem('authToken') !== null;
+
   const { pathname } = useLocation();
 
   const [open, setOpen] = useState(true);
   const toggleSideNav = () => setOpen((prev) => !prev);
 
+  if (!isAuthenticated) {
+    // Jika tidak autentikasi, arahkan ke halaman login
+    return <Navigate to="/login" replace />;
+  }
+
   return (
     <>
       <aside
         className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 border-e-[1px] ${
-          open ? "-translate-x-full" : "translate-x-0"
+          open ? '-translate-x-full' : 'translate-x-0'
         }`}
         aria-label="Sidebar"
       >
@@ -31,7 +39,7 @@ const AdminLayout = () => {
               <FiX className="w-4 h-4" />
             </button>
           </div>
-          <Link id="navbar-brand" to={"/"}>
+          <Link id="navbar-brand" to={'/'}>
             <div className="flex items-center justify-center shrink-0">
               <span className="text-2xl font-extrabold ms-3">
                 Dian & Delisa
@@ -100,9 +108,9 @@ const SidenavMenuItem = ({
     <Link
       to={href}
       className={cn(
-        "flex items-center px-3 leading-10 rounded-full group hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary-200",
+        'flex items-center px-3 leading-10 rounded-full group hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary-200',
         {
-          "bg-primary text-white": active,
+          'bg-primary text-white': active,
         }
       )}
     >
@@ -120,9 +128,9 @@ const SidenavSubmenuItem = ({
     <Link
       to={href}
       className={cn(
-        "flex items-center px-3 leading-10 rounded-full group hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary-200",
+        'flex items-center px-3 leading-10 rounded-full group hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary-200',
         {
-          "bg-primary text-white": active,
+          'bg-primary text-white': active,
         }
       )}
     >
@@ -150,9 +158,9 @@ const SidenavSubmenu = ({
       <button
         onClick={toggleSidenavSubMenu}
         className={cn(
-          "w-full flex items-center px-3 leading-10 rounded-full group hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary-200",
+          'w-full flex items-center px-3 leading-10 rounded-full group hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary-200',
           {
-            "bg-primary text-white": href.includes("pathname"),
+            'bg-primary text-white': href.includes('pathname'),
           }
         )}
       >
@@ -162,9 +170,9 @@ const SidenavSubmenu = ({
 
         <FiArrowUp
           className={cn(
-            "w-6 h-6 group-hover:text-white ms-auto transition-transform duration-200",
+            'w-6 h-6 group-hover:text-white ms-auto transition-transform duration-200',
             {
-              "rotate-180": isOpen,
+              'rotate-180': isOpen,
             }
           )}
         />
@@ -172,7 +180,7 @@ const SidenavSubmenu = ({
       <div
         ref={contentRef}
         style={{
-          maxHeight: isOpen ? `${contentRef.current?.scrollHeight}px` : "0px",
+          maxHeight: isOpen ? `${contentRef.current?.scrollHeight}px` : '0px',
         }}
         className={`overflow-hidden transition-max-height duration-500 ease-in-out`}
       >

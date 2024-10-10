@@ -9,7 +9,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -24,7 +24,7 @@ model User {
   invitationText InvitationText[]
   userGuests     GuestList[]
 
-  @@map("Users")
+  @@map("users")
 }
 
 model Quote {
@@ -33,7 +33,7 @@ model Quote {
   author    String
   createdAt DateTime @default(now())
 
-  @@map("Quotes")
+  @@map("quotes")
 }
 
 model GuestList {
@@ -45,7 +45,7 @@ model GuestList {
   userId         Int
   guestUserId    User     @relation(fields: [userId], references: [id])
 
-  @@map("GuestList")
+  @@map("guest_list")
 }
 
 model Reservation {
@@ -55,7 +55,7 @@ model Reservation {
   attendaceStatus String
   createdAt       DateTime @default(now())
 
-  @@map("Reservations")
+  @@map("reservations")
 }
 
 model WeddingConfig {
@@ -77,7 +77,7 @@ model WeddingConfig {
   weddingMapLink   String
   createdAt        DateTime @default(now())
 
-  @@map("WeddingConfig")
+  @@map("wedding_config")
 }
 
 model GiftAccount {
@@ -86,7 +86,7 @@ model GiftAccount {
   accountNumber String
   accountLogo   String
 
-  @@map("GiftAccounts")
+  @@map("gift_accounts")
 }
 
 model InvitationText {
@@ -97,5 +97,5 @@ model InvitationText {
   createdBy User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
 
-  @@map("InvitationText")
+  @@map("invitation_text")
 }
