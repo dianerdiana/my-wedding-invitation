@@ -5,6 +5,7 @@ import cors from "cors";
 import { ErrorMiddleware } from "./http/middlewares/ErrorMiddleware";
 import { ApiRoutes } from "./routes/api";
 import path from "path";
+import "mysql2";
 
 export const createServer = (): Express => {
   const app = express();

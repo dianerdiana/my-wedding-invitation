@@ -2,7 +2,7 @@
 import { memo, useRef, useState } from 'react';
 
 // Router Dom
-import { Link, Navigate, Outlet, useLocation } from 'react-router-dom';
+import { Link, Navigate, Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 // Thirdparty
 import { cn } from '@configs/cn';
@@ -16,9 +16,15 @@ const AdminLayout = memo(() => {
   const isAuthenticated = localStorage.getItem('authToken') !== null;
 
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const [open, setOpen] = useState(true);
   const toggleSideNav = () => setOpen((prev) => !prev);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate('/login');
+  };
 
   if (!isAuthenticated) {
     // Jika tidak autentikasi, arahkan ke halaman login
@@ -41,12 +47,10 @@ const AdminLayout = memo(() => {
           </div>
           <Link id="navbar-brand" to={'/'}>
             <div className="flex items-center justify-center shrink-0">
-              <span className="text-2xl font-extrabold ms-3">
-                Dian & Delisa
-              </span>
+              <span className="text-2xl font-extrabold ms-3">Dian & Delisa</span>
             </div>
           </Link>
-          <nav>
+          <nav className="flex flex-col justify-between h-full">
             <ul className="space-y-2">
               {navigation.map((nav, idx) => (
                 <li key={idx + 1}>
@@ -60,6 +64,13 @@ const AdminLayout = memo(() => {
                 </li>
               ))}
             </ul>
+
+            <button
+              className="py-2 font-semibold rounded-full hover:bg-primary hover:text-white"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
           </nav>
         </div>
       </aside>
@@ -78,9 +89,7 @@ const AdminLayout = memo(() => {
             <div className="flex items-center gap-3">
               <div>
                 <p className="text-xs text-gold text-end">username</p>
-                <p className="text-sm font-semibold text-white text-end">
-                  Full Name
-                </p>
+                <p className="text-sm font-semibold text-white text-end">Full Name</p>
               </div>
             </div>
           </div>
@@ -99,11 +108,7 @@ const SidenavMenuHeader = ({ title }: SidenavItem) => {
   return <h4 className="text-xs font-bold text-gray-400">{title}</h4>;
 };
 
-const SidenavMenuItem = ({
-  active,
-  title,
-  href,
-}: SidenavItem & { active: boolean }) => {
+const SidenavMenuItem = ({ active, title, href }: SidenavItem & { active: boolean }) => {
   return (
     <Link
       to={href}
@@ -119,11 +124,7 @@ const SidenavMenuItem = ({
   );
 };
 
-const SidenavSubmenuItem = ({
-  active,
-  title,
-  href,
-}: SidenavItem & { active: boolean }) => {
+const SidenavSubmenuItem = ({ active, title, href }: SidenavItem & { active: boolean }) => {
   return (
     <Link
       to={href}
@@ -164,9 +165,7 @@ const SidenavSubmenu = ({
           }
         )}
       >
-        <span className="font-semibold ms-3 group-hover:text-white">
-          {title}
-        </span>
+        <span className="font-semibold ms-3 group-hover:text-white">{title}</span>
 
         <FiArrowUp
           className={cn(

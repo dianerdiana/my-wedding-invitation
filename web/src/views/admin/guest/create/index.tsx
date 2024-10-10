@@ -45,7 +45,6 @@ const CreateGuestList = () => {
         invitationText: isiPengantarBerdasarkanNama,
       };
     });
-    console.log({ inputData });
 
     dispatch(createGuestList(inputData)).then(({ payload }) => {
       if (payload.error) {

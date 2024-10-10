@@ -1,6 +1,9 @@
 import axis from '@src/configs/axis';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { isAxiosError } from 'axios';
+import { getUserData } from '@src/utils/Utils';
+
+const initialUserData = getUserData();
 
 // Thunk untuk login
 export const login = createAsyncThunk(
@@ -51,21 +54,38 @@ export const createGuestList = createAsyncThunk(
   }
 );
 
+export const deleteGuestList = createAsyncThunk(
+  'appSlice/createGuestList',
+  async (guestListId: number, { rejectWithValue, dispatch }) => {
+    try {
+      const response = await axis.delete(`/guests/delete/${guestListId}`);
+      await dispatch(getAllGuestList());
+
+      return response.data;
+    } catch (error: unknown) {
+      if (isAxiosError(error)) {
+        return rejectWithValue(error.response?.data?.message || 'Gagal');
+      } else {
+        return rejectWithValue('An unexpected error occurred');
+      }
+    }
+  }
+);
+
 // Slice untuk state aplikasi
 export const appSlice = createSlice({
   name: 'appSlice',
   initialState: {
-    userData: {
-      id: '',
-      fullName: '',
-      username: '',
-      authToken: '',
-    },
+    userData: initialUserData,
     guestList: {
       data: [],
     },
   },
-  reducers: {},
+  reducers: {
+    logout: () => {
+      localStorage.clear();
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(login.fulfilled, (state, action) => {
       state.userData = action.payload.data;
