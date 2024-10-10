@@ -15,16 +15,13 @@ const Login = () => {
   const { control, handleSubmit } = useForm({ defaultValues });
 
   const onSubmit = (data: { username: string; password: string }) => {
-    console.log(data);
-    dispatch(login({ username: data.username, password: data.password })).then(
-      ({ payload }) => {
-        if (payload.error) {
-          toast.error(payload.message);
-        } else {
-          navigate('/admin');
-        }
+    dispatch(login({ username: data.username, password: data.password })).then(({ payload }) => {
+      if (payload.error) {
+        toast.error(payload.message);
+      } else {
+        navigate('/admin');
       }
-    );
+    });
   };
 
   return (
@@ -73,9 +70,7 @@ const Login = () => {
           />
         </div>
 
-        <button className="w-full px-8 py-3 text-sm text-white rounded-md bg-gold">
-          Masuk
-        </button>
+        <button className="w-full px-8 py-3 text-sm text-white rounded-md bg-gold">Masuk</button>
       </form>
     </section>
   );

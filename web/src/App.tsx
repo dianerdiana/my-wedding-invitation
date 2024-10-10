@@ -2,18 +2,15 @@ import { lazy, Suspense } from 'react';
 import MainLayout from './layouts/MainLayout';
 
 // Auth
-const Login = lazy(() => import('./views/authentication/Login'));
+// const Login = lazy(() => import('./views/authentication/Login'));
+import Login from './views/authentication/Login';
 
 const Invitation = lazy(() => import('./views/invitation'));
 const WeddingConfig = lazy(() => import('./views/wedding-config'));
 const GuestList = lazy(() => import('./views/admin/guest/list'));
 const CreateGuest = lazy(() => import('./views/admin/guest/create'));
 
-import {
-  createBrowserRouter,
-  Navigate,
-  RouterProvider,
-} from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
 import AdminLayout from './layouts/AdminLayout';
 
