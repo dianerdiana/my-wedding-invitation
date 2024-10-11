@@ -65,6 +65,35 @@ export const getAllGuestList = async (
   }
 };
 
+export const updateStatusGuestList = async (
+  req: AuthenticatedRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { id, status } = req.body;
+
+    const statusTextToUpdate = status === "BELUM" ? "SUDAH" : "BELUM";
+    const guestList = await db.guestList.update({
+      data: {
+        status: statusTextToUpdate,
+        userId: req.user?.userId,
+      },
+      where: {
+        id,
+      },
+    });
+
+    res.status(200).json({
+      error: false,
+      message: "success",
+      data: guestList,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const deleteGuestList = async (
   req: AuthenticatedRequest,
   res: Response,

@@ -41,6 +41,7 @@ model GuestList {
   name           String
   phone          String?
   invitationText String   @db.Text
+  status         String   @default("BELUM")
   createdAt      DateTime @default(now())
   userId         Int
   guestUserId    User     @relation(fields: [userId], references: [id])
@@ -49,11 +50,11 @@ model GuestList {
 }
 
 model Reservation {
-  id              Int      @id @default(autoincrement())
-  name            String
-  message         String   @db.Text
-  attendaceStatus String
-  createdAt       DateTime @default(now())
+  id               Int      @id @default(autoincrement())
+  name             String
+  message          String   @db.Text
+  attendanceStatus String
+  createdAt        DateTime @default(now())
 
   @@map("reservations")
 }

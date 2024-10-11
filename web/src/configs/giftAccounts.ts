@@ -6,13 +6,13 @@ export type GiftAccountType = {
 
 export const giftAccounts: GiftAccountType[] = [
   {
-    accountLogo: "/images/logo-bni.png",
-    accountName: "Dede Delisa",
-    accountNumber: "1116657924",
+    accountLogo: '/images/logo-bni.png',
+    accountName: 'Dede Delisa',
+    accountNumber: '1116657924',
   },
   {
-    accountLogo: "/images/logo-mandiri.png",
-    accountName: "Dian Erdiana",
-    accountNumber: "11166579812",
+    accountLogo: '/images/logo-mandiri.png',
+    accountName: 'Dian Erdiana',
+    accountNumber: '1340025345454',
   },
 ];
