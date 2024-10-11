@@ -1,7 +1,7 @@
-import { AuthenticatedRequest, UserPayload } from "@libs/AuthenticatedRequest";
-import { UnauthorizedError } from "@libs/errors/UnauthorizedError";
-import { verifyToken } from "@libs/jwt";
 import { NextFunction, Response } from "express";
+import { UnauthorizedError } from "../../libs/errors/UnauthorizedError";
+import { verifyToken } from "../../libs/jwt";
+import { AuthenticatedRequest } from "../../libs/AuthenticatedRequest";
 
 export const AuthMiddleware = async (
   req: AuthenticatedRequest,

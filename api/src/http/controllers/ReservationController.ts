@@ -1,8 +1,7 @@
 import { NextFunction, Response } from "express";
-
-import { db } from "@config/db";
-import { AuthenticatedRequest } from "@libs/AuthenticatedRequest";
-import { createReservationSchema } from "http/validations/ReservationValidation";
+import { createReservationSchema } from "../validations/ReservationValidation";
+import { db } from "../../config/db";
+import { AuthenticatedRequest } from "../../libs/AuthenticatedRequest";
 
 export const createReservation = async (
   req: AuthenticatedRequest,

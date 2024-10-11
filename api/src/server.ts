@@ -17,6 +17,9 @@ export const createServer = (): Express => {
     .use(cors())
     .use(express.static(path.join(__dirname, "public")))
     .use(express.static(path.join(__dirname, "uploads")))
+    .get("/", (_, res) => {
+      res.render("Hello World!");
+    })
     .get("/status", (_, res) => {
       return res.json({ ok: true });
     })

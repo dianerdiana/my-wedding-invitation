@@ -1,14 +1,9 @@
-// Core
-import { db } from "@config/db";
+import { comparePassword } from "./../../libs/password";
+import { db } from "./../../config/db";
+import { BadRequestError } from "./../../libs/errors/BadRequestError";
 import { NextFunction, Request, Response } from "express";
-
-// Errors
-import { BadRequestError } from "@libs/errors/BadRequestError";
-
-// Utils
 import { loginSchema, LoginInput } from "../validations/AuthValidation";
-import { comparePassword } from "@libs/password";
-import { generateToken } from "@libs/jwt";
+import { generateToken } from "../../libs/jwt";
 
 export const login = async (req: Request, res: Response, next: NextFunction) => {
   try {

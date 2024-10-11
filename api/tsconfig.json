@@ -13,14 +13,6 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     // Alias
-    "baseUrl": "./src",
-    "paths": {
-      "@src/*": ["/*"],
-      "@libs/*": ["libs/*"],
-      "@config/*": ["config/*"],
-      "@middlewares/*": ["http/middlewares/*"],
-      "@controllers/*": ["http/controllers/*"]
-    }
   },
   "exclude": ["node_modules", "dist"],
   "include": ["src/**/*"]

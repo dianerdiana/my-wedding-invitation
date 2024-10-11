@@ -1,8 +1,8 @@
-import { AppError } from "@libs/errors/AppError";
 import { NextFunction, Request, Response } from "express";
 import { ZodError } from "zod";
-import logger from "@libs/logger";
+// import logger from "../../libs/logger";
 import { Prisma } from "@prisma/client";
+import { AppError } from "../../libs/errors/AppError";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const ErrorMiddleware = (error: Error, req: Request, res: Response, next: NextFunction) => {
@@ -12,7 +12,7 @@ export const ErrorMiddleware = (error: Error, req: Request, res: Response, next:
       message: issue.message,
     }));
 
-    logger.error(errorMessages);
+    // logger.error(errorMessages);
     return res.status(405).json({
       error: true,
       status: "error",
@@ -23,7 +23,7 @@ export const ErrorMiddleware = (error: Error, req: Request, res: Response, next:
 
   if (error instanceof AppError) {
     if (error.isOperational) {
-      logger.error(error.message);
+      // logger.error(error.message);
       return res.status(error.statusCode).json({
         error: true,
         status: "error",
@@ -45,7 +45,7 @@ export const ErrorMiddleware = (error: Error, req: Request, res: Response, next:
     }
   }
 
-  logger.error(error);
+  // logger.error(error);
   return res.status(500).json({
     error: true,
     status: "error",

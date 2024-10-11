@@ -96,7 +96,7 @@ const CreateGuestList = () => {
               type="text"
               defaultValue={linkUndangan}
               onChange={(e) => onChangeLinkUndangan(e.target.value)}
-              className="w-full text-sm bg-transparent outline-none appearance-none text-brown placeholder:text-sm placeholder:text-gray-300"
+              className="w-full text-base bg-transparent outline-none appearance-none text-brown placeholder:text-sm placeholder:text-gray-300"
             />
           </div>
         </div>
@@ -111,7 +111,7 @@ const CreateGuestList = () => {
               name="yang-mengundang"
               defaultValue={yangMengundang}
               onChange={(e) => onChangeYangMengundang(e.target.value)}
-              className="w-full text-sm bg-transparent outline-none appearance-none text-brown placeholder:text-sm placeholder:text-gray-300"
+              className="w-full text-base bg-transparent outline-none appearance-none text-brown placeholder:text-sm placeholder:text-gray-300"
             />
           </div>
         </div>
@@ -136,7 +136,7 @@ const CreateGuestList = () => {
 Nama Tamu 2
 Nama Tamu 3
                     "
-                    className="w-full text-xs bg-transparent outline-none appearance-none text-brown placeholder:text-sm placeholder:text-gray-300"
+                    className="w-full text-base bg-transparent outline-none appearance-none text-brown placeholder:text-sm placeholder:text-gray-300"
                   ></textarea>
                 </div>
               );
@@ -171,7 +171,7 @@ Nama Tamu 3
                   <textarea
                     {...field}
                     rows={25}
-                    className="w-full text-xs bg-transparent outline-none appearance-none text-brown placeholder:text-sm placeholder:text-gray-300"
+                    className="w-full text-base bg-transparent outline-none appearance-none text-brown placeholder:text-sm placeholder:text-gray-300"
                   ></textarea>
                 </div>
               );

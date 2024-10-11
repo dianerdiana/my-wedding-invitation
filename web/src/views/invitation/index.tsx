@@ -2,7 +2,7 @@ import ModalInvitation from './ModalInvitation';
 import WeddingInvitationContent from '@src/components/wedding-invitation-content';
 import { HiSpeakerWave, HiSpeakerXMark } from 'react-icons/hi2';
 import { useAudio } from '@utils/hooks/useAudio';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { weddingConfig } from '@src/configs/weddingConfig';
 
 const Invitation = () => {
@@ -21,11 +21,6 @@ const Invitation = () => {
         >
           {isPlaying ? <HiSpeakerWave /> : <HiSpeakerXMark />}
         </button>
-      </div>
-      <div className="fixed bottom-0 p-1 end-0">
-        <Link to="/login" className="px-4 py-2 bg-white rounded-md">
-          Pergi
-        </Link>
       </div>
       <ModalInvitation
         to={to || 'Tamu Undangan'}

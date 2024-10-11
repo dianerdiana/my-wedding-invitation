@@ -21,8 +21,8 @@ type WeddingConfig = {
 export const weddingConfig: WeddingConfig = {
   groomFullName: 'Dian Erdiana',
   groomShortName: 'Dian',
-  brideFullName: 'Delisa Dede',
-  brideShortName: 'Dede',
+  brideFullName: 'Dede Delisa',
+  brideShortName: 'Delisa',
   groomInitialName: 'D',
   brideInitialName: 'D',
   groomFatherName: 'Sutarwan',

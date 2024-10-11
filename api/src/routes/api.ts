@@ -1,16 +1,16 @@
 import express from "express";
 
 // Controllers
-import { login } from "@controllers/AuthController";
+
+// Middlewares
+import { login } from "../http/controllers/AuthController";
+import { AuthMiddleware } from "../http/middlewares/AuthMiddleware";
 import {
   createGuestList,
   deleteGuestList,
   getAllGuestList,
-} from "@controllers/GuestListController";
-import { createReservation } from "@controllers/ReservationController";
-
-// Middlewares
-import { AuthMiddleware } from "@middlewares/AuthMiddleware";
+} from "../http/controllers/GuestListController";
+import { createReservation } from "../http/controllers/ReservationController";
 
 const router = express.Router();
 

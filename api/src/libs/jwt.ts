@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import { ENV } from "@config/env";
 import { UnauthorizedError } from "./errors/UnauthorizedError";
+import { ENV } from "../config/env";
 
 export const generateToken = (userId: number, username: string) => {
   if (!ENV.JWT_SECRET) {
